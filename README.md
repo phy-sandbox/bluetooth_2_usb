@@ -31,7 +31,7 @@ cd /opt/bluetooth_2_usb && sudo env PYTHONPATH=src python3 -m bluetooth_2_usb in
 sudo reboot
 ```
 
-### 3. Pair your Bluetooth device
+### 3a. Pair your Bluetooth device
 
 ```bash
 bluetoothctl
@@ -47,6 +47,17 @@ exit
 > Replace `A1:B2:C3:D4:E5:F6` with your device's real Bluetooth MAC address.
 > Some devices trigger an interactive `bluetoothctl` authorization prompt
 > during pairing. Answer it immediately or BlueZ may cancel the request.
+
+### 3b. Remove previously paired Bluetooth device
+```bash
+bluetoothctl
+devices
+delete A1:B2:C3:D4:E5:F6
+```
+
+> [!NOTE]
+> Replace `A1:B2:C3:D4:E5:F6` with your device's real Bluetooth MAC address.
+> The delete action will take time so need to wait until it is deleted.
 
 ### 4. Run the smoketest
 
